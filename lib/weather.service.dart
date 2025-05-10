@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:sky_pulse/key.dart';
 import 'package:sky_pulse/model/weather.dart';
 
-
 class WeatherService {
-  static final String _apiKey = dotenv.env['OPENWEATHER_API_KEY'] ?? '';
-  static const String _baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
+  static const String _apiKey = AppKey.apikey;
+  static const String _baseUrl =
+      'https://api.openweathermap.org/data/2.5/weather';
 
   Future<Weather?> fetchWeather(String city) async {
     try {

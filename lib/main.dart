@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:sky_pulse/controller/weather_controller.dart';
 import 'package:sky_pulse/widget/weather_card.dart';
 
-void main() async{
-  await dotenv.load();
-  runApp(
-    ChangeNotifierProvider(
-      create: (_) => WeatherController(),
-      child: const MyApp()));
+void main() {
+  runApp(ChangeNotifierProvider(
+      create: (_) => WeatherController(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -40,10 +35,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  WeatherHomePage(),
+      home: WeatherHomePage(),
     );
   }
 }
+
 class WeatherHomePage extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
 
